@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:prici_app/pages/home_page.dart';
 
 void main() {
@@ -11,7 +12,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        theme: ThemeData.light(),
-        home: HomePage());
+        themeMode: ThemeMode.system,
+        theme: ThemeData.light().copyWith(
+            primaryColor: Colors.red,
+            accentColor: Colors.pinkAccent,
+            cursorColor: Colors.red,
+            textTheme: GoogleFonts.montserratTextTheme()),
+        home: const HomePage());
   }
 }
