@@ -17,7 +17,11 @@ class MyApp extends StatelessWidget {
             primaryColor: Colors.red,
             accentColor: Colors.pinkAccent,
             cursorColor: Colors.red,
+            appBarTheme: ThemeData.light().appBarTheme.copyWith(
+                color: ThemeData.light().scaffoldBackgroundColor,
+                elevation: 0,
+                brightness: ThemeData.light().brightness),
             textTheme: GoogleFonts.montserratTextTheme()),
-        home: HomePage());
+        home: const HomePage());
   }
 }

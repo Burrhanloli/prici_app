@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gradient_text/gradient_text.dart';
 
-class LoginPage extends StatelessWidget {
+class SignUpPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,9 +23,6 @@ class LoginPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
-              SizedBox(
-                height: MediaQuery.of(context).size.height * 0.2,
-              ),
               GradientText("Hello",
                   gradient: LinearGradient(
                     colors: [
@@ -37,7 +34,7 @@ class LoginPage extends StatelessWidget {
               const Padding(
                   padding: EdgeInsets.only(top: 10, bottom: 30),
                   child: Text(
-                    'Login first to continue',
+                    'Sign up for Prici',
                     style: TextStyle(fontSize: 20),
                   )),
               Padding(
@@ -46,10 +43,10 @@ class LoginPage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
                     TextFormField(
-                      keyboardType: TextInputType.emailAddress,
+                      keyboardType: TextInputType.text,
                       decoration: const InputDecoration(
                         border: OutlineInputBorder(),
-                        labelText: 'Email',
+                        labelText: 'First Name',
                       ),
                       validator: (value) {
                         if (value.isEmpty) {
@@ -59,7 +56,39 @@ class LoginPage extends StatelessWidget {
                       },
                     ),
                     Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 15.0),
+                      padding: const EdgeInsets.only(top: 15.0),
+                      child: TextFormField(
+                        keyboardType: TextInputType.text,
+                        decoration: const InputDecoration(
+                          border: OutlineInputBorder(),
+                          labelText: 'Last Name',
+                        ),
+                        validator: (value) {
+                          if (value.isEmpty) {
+                            return 'Please enter some text';
+                          }
+                          return null;
+                        },
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 15.0),
+                      child: TextFormField(
+                        keyboardType: TextInputType.emailAddress,
+                        decoration: const InputDecoration(
+                          border: OutlineInputBorder(),
+                          labelText: 'Email',
+                        ),
+                        validator: (value) {
+                          if (value.isEmpty) {
+                            return 'Please enter some text';
+                          }
+                          return null;
+                        },
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 15.0),
                       child: TextFormField(
                         keyboardType: TextInputType.visiblePassword,
                         obscureText: true,
@@ -76,17 +105,30 @@ class LoginPage extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 15.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: <Widget>[const Text('Forgot Password?')],
+                      padding: const EdgeInsets.only(top: 15.0),
+                      child: TextFormField(
+                        keyboardType: TextInputType.phone,
+                        obscureText: true,
+                        decoration: const InputDecoration(
+                          border: OutlineInputBorder(),
+                          labelText: 'Mobile',
+                        ),
+                        validator: (value) {
+                          if (value.isEmpty) {
+                            return 'Please enter some text';
+                          }
+                          return null;
+                        },
                       ),
                     )
                   ],
                 ),
               ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.1,
+              ),
               Padding(
-                padding: const EdgeInsets.symmetric(vertical: 15.0),
+                padding: const EdgeInsets.only(top: 15.0),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -112,7 +154,7 @@ class LoginPage extends StatelessWidget {
                           child: Container(
                             alignment: Alignment.center,
                             child: Text(
-                              "Login",
+                              "Next",
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                   color: Colors.white,
@@ -122,10 +164,10 @@ class LoginPage extends StatelessWidget {
                           ),
                         ),
                       ),
-                    ),
+                    )
                   ],
                 ),
-              )
+              ),
             ],
           ),
         ),
