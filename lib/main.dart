@@ -18,6 +18,6 @@ class MyApp extends StatelessWidget {
             accentColor: Colors.pinkAccent,
             cursorColor: Colors.red,
             textTheme: GoogleFonts.montserratTextTheme()),
-        home: const HomePage());
+        home: HomePage());
   }
 }

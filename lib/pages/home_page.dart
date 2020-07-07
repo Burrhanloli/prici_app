@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:prici_app/pages/login_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({
@@ -62,29 +63,35 @@ class HomePage extends StatelessWidget {
                 )),
             Expanded(
                 child: Padding(
-                  padding: const EdgeInsets.all(15.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: <Widget>[
-                      FlatButton(
-                        onPressed: () => {},
-                        textColor: Colors.red,
-                        color: Colors.white,
-                        child: const Text('Login'),
-                      ),
-                      OutlineButton(
-                        highlightedBorderColor: Colors.white,
-                        onPressed: () => {},
-                        textColor: Colors.white,
-                        borderSide: BorderSide(
-                          color: Colors.white,
-                        ),
-                        child: const Text('Register'),
-                      ),
-                    ],
-                  ),
-                ))
+					padding: const EdgeInsets.all(15.0),
+					child: Column(
+						mainAxisAlignment: MainAxisAlignment.center,
+						crossAxisAlignment: CrossAxisAlignment.stretch,
+						children: <Widget>[
+							FlatButton(
+								onPressed: () {
+									Navigator.push(
+										context,
+										MaterialPageRoute(builder: (context) =>
+											LoginPage()),
+									);
+								},
+								textColor: Colors.red,
+								color: Colors.white,
+								child: const Text('Login'),
+							),
+							OutlineButton(
+								highlightedBorderColor: Colors.white,
+								onPressed: () => {},
+								textColor: Colors.white,
+								borderSide: BorderSide(
+									color: Colors.white,
+								),
+								child: const Text('Register'),
+							),
+						],
+					),
+				))
           ],
         ),
       ),
