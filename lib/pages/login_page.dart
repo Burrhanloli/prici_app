@@ -1,7 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:gradient_text/gradient_text.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
+  @override
+  _LoginPageState createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  bool _obscureText = true;
+  void _togglePasswordStatus() {
+    setState(() {
+      _obscureText = !_obscureText;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -11,8 +23,6 @@ class LoginPage extends StatelessWidget {
           onPressed: () => Navigator.pop(context),
           icon: Icon(
             Icons.arrow_back,
-            size: 30.0,
-            color: Colors.grey,
           ),
         ),
       ),
@@ -31,7 +41,8 @@ class LoginPage extends StatelessWidget {
                         Theme.of(context).primaryColor,
                       ],
                     ),
-                    style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
+                    style:
+                        TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
                 const Padding(
                     padding: EdgeInsets.only(top: 10, bottom: 30),
                     child: Text(
@@ -60,10 +71,18 @@ class LoginPage extends StatelessWidget {
                         padding: const EdgeInsets.symmetric(vertical: 15.0),
                         child: TextFormField(
                           keyboardType: TextInputType.visiblePassword,
-                          obscureText: true,
-                          decoration: const InputDecoration(
-                            border: OutlineInputBorder(),
+                          obscureText: _obscureText,
+                          decoration: InputDecoration(
+                            border: const OutlineInputBorder(),
                             labelText: 'Password',
+                            suffixIcon: IconButton(
+                              icon: Icon(
+                                _obscureText
+                                    ? Icons.visibility
+                                    : Icons.visibility_off,
+                              ),
+                              onPressed: _togglePasswordStatus,
+                            ),
                           ),
                           validator: (value) {
                             if (value.isEmpty) {

@@ -17,10 +17,11 @@ const lightColorScheme = ColorScheme(
   error: Color(0xffb00020),
 );
 
-final IconThemeData iconThemeData =
-    IconThemeData(color: lightColorScheme.primary, size: 30, opacity: 0);
+final IconThemeData lightIconThemeData =
+    IconThemeData(color: lightColorScheme.primary, size: 30);
 
 ThemeData lightTheme() => ThemeData(
+      primarySwatch: Colors.red,
       brightness: lightColorScheme.brightness,
       primaryColor: lightColorScheme.primary,
       primaryColorBrightness:
@@ -44,18 +45,24 @@ ThemeData lightTheme() => ThemeData(
           color: lightColorScheme.background,
           elevation: 0,
           brightness: lightColorScheme.brightness,
-          iconTheme: iconThemeData,
+          iconTheme: lightIconThemeData,
           textTheme:
               GoogleFonts.montserratTextTheme(ThemeData.light().textTheme),
-          actionsIconTheme: iconThemeData),
+          actionsIconTheme: lightIconThemeData),
+      cursorColor: lightColorScheme.primary,
+      visualDensity: VisualDensity.adaptivePlatformDensity,
+      toggleableActiveColor: darkColorScheme.primary,
+      textSelectionHandleColor: Colors.red[300],
+      highlightColor: Colors.red[200],
+      splashColor: Colors.pink[200],
     );
 
 const darkColorScheme = ColorScheme(
   brightness: Brightness.dark,
   onPrimary: Colors.white,
   onSecondary: Colors.white,
-  onBackground: Colors.black,
-  onSurface: Colors.black,
+  onBackground: Colors.white,
+  onSurface: Colors.white,
   onError: Colors.white,
   primary: Color(0xfff44336),
   primaryVariant: Color(0xffD32F2F),
@@ -66,7 +73,11 @@ const darkColorScheme = ColorScheme(
   error: Color(0xffcf6679),
 );
 
+final IconThemeData darkIconThemeData =
+    IconThemeData(color: lightColorScheme.secondary, size: 30);
+
 ThemeData darkTheme() => ThemeData(
+      primarySwatch: Colors.red,
       brightness: darkColorScheme.brightness,
       primaryColor: darkColorScheme.primary,
       primaryColorBrightness:
@@ -90,8 +101,14 @@ ThemeData darkTheme() => ThemeData(
           color: darkColorScheme.background,
           elevation: 0,
           brightness: darkColorScheme.brightness,
-          iconTheme: iconThemeData,
+          iconTheme: darkIconThemeData,
           textTheme:
               GoogleFonts.montserratTextTheme(ThemeData.dark().textTheme),
-          actionsIconTheme: iconThemeData),
+          actionsIconTheme: darkIconThemeData),
+      cursorColor: lightColorScheme.secondary,
+      visualDensity: VisualDensity.adaptivePlatformDensity,
+      toggleableActiveColor: darkColorScheme.primary,
+      textSelectionHandleColor: Colors.red[300],
+      highlightColor: Colors.red[200],
+      splashColor: Colors.pink[200],
     );
