@@ -76,7 +76,7 @@ class HomePage extends StatelessWidget {
                       context,
                       MaterialPageRoute(builder: (context) => LoginPage()),
                     ),
-                    textColor: Colors.red,
+                    textColor: Theme.of(context).primaryColor,
                     color: Colors.white,
                     child: const Text('Login'),
                   ),
