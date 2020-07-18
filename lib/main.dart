@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:prici_app/pages/splash_sceen.dart';
-import 'package:prici_app/theme.dart';
+import 'package:prici_app/utils/theme.dart';
 
 
 void main() {

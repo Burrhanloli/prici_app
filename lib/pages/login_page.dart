@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gradient_text/gradient_text.dart';
+import 'package:prici_app/utils/prici_utils.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -29,18 +30,14 @@ class _LoginPageState extends State<LoginPage> {
       body: SafeArea(
         child: Center(
           child: SingleChildScrollView(
+            physics: const BouncingScrollPhysics(),
             padding: const EdgeInsets.symmetric(horizontal: 15.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
                 GradientText("Hello",
-                    gradient: LinearGradient(
-                      colors: [
-                        Theme.of(context).accentColor,
-                        Theme.of(context).primaryColor,
-                      ],
-                    ),
+                    gradient: linearGradient(context),
                     style:
                         TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
                 const Padding(
@@ -117,14 +114,7 @@ class _LoginPageState extends State<LoginPage> {
                           padding: const EdgeInsets.all(0.0),
                           child: Ink(
                             decoration: BoxDecoration(
-                                gradient: LinearGradient(
-                                  colors: [
-                                    Theme.of(context).accentColor,
-                                    Theme.of(context).primaryColor,
-                                  ],
-                                  end: Alignment.bottomRight,
-                                  begin: Alignment.bottomLeft,
-                                ),
+                                gradient: linearGradient(context),
                                 borderRadius: BorderRadius.circular(10.0)),
                             child: Container(
                               alignment: Alignment.center,
